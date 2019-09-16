@@ -1,4 +1,5 @@
 // "go command"
+// Clase en ML el día: 11/09/2019
 package main
 
 import (
@@ -12,18 +13,6 @@ func main() {
 
 // Se ejecuta todo aca al iniciar
 func init() {
-	//HelloWorld()
-	//printZeroValue()
-	//ifearUnNombreAlgo("Alexander")
-	//ifearUnNombreAlgo("Josesito")
-	//loopearTuO(4)
-	//loopWhileMultiplo(3)
-
-	//a, b, c := imprimirAlReves("10", "Alexander")
-	//fmt.Println(a)
-	//fmt.Println(c)
-	//fmt.Println("%s", b)
-
 	valor, error := strconv.Atoi(os.Args[1])
 	if error == nil {
 		pedirNumeroYMostrar(valor)
@@ -61,9 +50,6 @@ func loopearTuO(veces int) {
 		o += "o"
 		fmt.Print("Hell")
 		fmt.Println(o)
-		//for j := 0; j < len(o); j++ {
-		//	fmt.Pr
-		//}
 	}
 }
 
