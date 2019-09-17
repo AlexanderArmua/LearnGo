@@ -15,11 +15,15 @@ func main() {
 }
 
 func init() {
-	valor, error := strconv.Atoi(os.Args[1])
-	if error == nil {
-		pedirNumeroYMostrar(valor)
+	if len(os.Args) > 1 {
+		valor, error := strconv.Atoi(os.Args[1])
+		if error == nil {
+			pedirNumeroYMostrar(valor)
+		} else {
+			fmt.Printf("ERROR: '%s' no es un valor entero", os.Args[1])
+		}
 	} else {
-		fmt.Printf("ERROR: '%s' no es un valor entero", os.Args[1])
+		fmt.Printf("ERROR: Ingrese un parametro");
 	}
 }
 
