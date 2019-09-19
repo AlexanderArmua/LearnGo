@@ -23,7 +23,7 @@ func init() {
 			fmt.Printf("ERROR: '%s' no es un valor entero", os.Args[1])
 		}
 	} else {
-		fmt.Printf("ERROR: Ingrese un parametro");
+		fmt.Printf("ERROR: Ingrese un parametro")
 	}
 }
 
