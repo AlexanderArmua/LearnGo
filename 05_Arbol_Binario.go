@@ -82,10 +82,17 @@ func createNewNode(valor int) *Node {
 	return arbol
 }
 
+// Falta balancearlo
 func addNodeToTree(arbol *Node, valor int) {
 	if valor < arbol.Valor {
 		arbol.Left = addValueToNode(arbol.Left, valor)
 	} else if valor > arbol.Valor {
+		//if arbol.Right != nil && arbol.Right.Valor > valor {
+		// El valor es mayor al nodo actual pero menor al siguiente.
+		//	nodoNuevo := createNewNode(valor)
+		//	nodoNuevo.Right = arbol.Right
+		//	arbol.Right = nodoNuevo
+		//}
 		arbol.Right = addValueToNode(arbol.Right, valor)
 	}
 }
