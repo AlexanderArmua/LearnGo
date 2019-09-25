@@ -4,6 +4,11 @@
 *	popule un arbol binario y
 *	después imprima los valores en orden ascendente.
  */
+/*
+	Todo:
+		Imprimir en forma de arbol.
+		Reordenar al ingresar.
+*/
 
 package main
 
@@ -23,9 +28,11 @@ func main() {
 	fmt.Printf("Ingreso por parametros: %v\n\n", params)
 
 	nodo1 := new(Node)
-	loadTree(nodo1, params)
+	_, error := loadTree(nodo1, params)
 
-	printTree(nodo1, 0, "*")
+	if !error {
+		printTree(nodo1, 0, "")
+	}
 }
 
 func loadTree(arbol *Node, elements []int) (*Node, bool) {
@@ -42,10 +49,9 @@ func loadTree(arbol *Node, elements []int) (*Node, bool) {
 	return arbol, false
 }
 
-// Solo imprime hacia la derecha
 func printTree(arbol *Node, pos int, char string) {
 	if arbol != nil {
-		fmt.Print(char + " -> ")
+		fmt.Print(char + "-> ")
 
 		fmt.Printf("%v", arbol.Valor)
 		fmt.Print("\n")
@@ -60,7 +66,6 @@ func printTree(arbol *Node, pos int, char string) {
 	}
 }
 
-// Crear el arbol segun ingresa usuario (falta re-ordenar punteros)
 func addValueToNode(arbol *Node, valor int) *Node {
 	if arbol == nil {
 		return createNewNode(valor)
