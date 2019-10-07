@@ -7,7 +7,9 @@
 /*
 	Todo:
 		Imprimir en forma de arbol.
-		Reordenar al ingresar.
+		Balancear al ingresar los datos al arbol.
+
+	IMPORTANTE: EL ARBOL NO SE ESTA BALANCEANDO
 */
 
 package main

@@ -39,6 +39,7 @@ type asistente interface {
 }
 
 func main() {
+	// TODO: Seria bueno que no este hardcodeado y que al menos tome por parametro al ejecutar
 	gente := []asistente{general{}, general{}, jubilado{}, jubilado{}, invitado{}}
 	var precioBase float32 = 20.55
 

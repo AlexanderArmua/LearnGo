@@ -1,4 +1,5 @@
 /*
+	EJECUCIÓN:
 	go run NombreArchivo.go NUMERO
 	Se imprime la suma de todos los numeros multiplos de 3 y de 5 desde 0 hasta NUMERO.
 */

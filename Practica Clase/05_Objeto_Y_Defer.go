@@ -17,3 +17,10 @@ func main() {
 
 	fmt.Printf("StatusCoe: %d", err.StatusCode)
 }
+
+func algoTarde() string {
+	// Se ejecuta al final, pero como hay return queda en el olvido.
+	defer fmt.Printf("World")
+
+	return "asd"
+}
