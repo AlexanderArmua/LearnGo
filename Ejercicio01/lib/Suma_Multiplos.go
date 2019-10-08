@@ -14,35 +14,6 @@ func GetSumaDivisores(desde int, hasta int) int {
 	return obtenerSumaDesdeHasta(desde, hasta)
 }
 
-// @deprecated: Usar GetSumaDivisoresParalelizando(desde, hasta, 2)
-func getSumaDivisores2Paralelo(desde int, hasta int) int {
-	var wg sync.WaitGroup
-
-	wg.Add(2)
-
-	desde1 := desde
-	hasta1 := hasta / 2
-	desde2 := hasta1 + 1
-	hasta2 := hasta
-
-	var resultado1 int
-	var resultado2 int
-
-	go func() {
-		defer wg.Done()
-		resultado1 = obtenerSumaDesdeHasta(desde1, hasta1)
-	}()
-
-	go func() {
-		defer wg.Done()
-		resultado2 = obtenerSumaDesdeHasta(desde2, hasta2)
-	}()
-
-	wg.Wait()
-
-	return resultado1 + resultado2
-}
-
 // GetSumaDivisoresParalelizando retorna la suma desde 0 hasta el numero pero se puede decirle en cuantas partes paralelizar
 func GetSumaDivisoresParalelizando(desde int, hasta int, partes int) int {
 	var wg sync.WaitGroup
