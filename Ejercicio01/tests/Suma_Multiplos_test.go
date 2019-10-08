@@ -69,6 +69,8 @@ func BenchmarkGetSumaDivisores(b *testing.B) {
 }
 
 func BenchmarkGetSumaDivisoresParalelizando(b *testing.B) {
+	iterateAndCalculate(1, b)
+	iterateAndCalculate(2, b)
 	iterateAndCalculate(4, b)
 	iterateAndCalculate(5, b)
 	iterateAndCalculate(8, b)

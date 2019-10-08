@@ -1,6 +1,7 @@
 package lib
 
 import (
+	"runtime"
 	"sync"
 )
 
@@ -12,6 +13,12 @@ type Parte struct {
 // GetSumaDivisores retorna la suma desde 0 hasta el numero que se ingrese de los multiplos de 3 o 5
 func GetSumaDivisores(desde int, hasta int) int {
 	return obtenerSumaDesdeHasta(desde, hasta)
+}
+
+// GetSumaDivisoresParalelizandoCPU retorna la suma desde 0 hasta el numero creando tantas goroutines como pueda
+func GetSumaDivisoresParalelizandoCPU(desde int, hasta int) int {
+	processors := runtime.GOMAXPROCS(0)
+	return GetSumaDivisoresParalelizando(desde, hasta, processors)
 }
 
 // GetSumaDivisoresParalelizando retorna la suma desde 0 hasta el numero pero se puede decirle en cuantas partes paralelizar
