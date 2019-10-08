@@ -2,16 +2,22 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 
 	"./lib"
 )
 
 func main() {
-	suma := lib.GetSumaDivisores(0, 10000000)
+	minimo, _ := strconv.Atoi(os.Args[1])
+	maximo, _ := strconv.Atoi(os.Args[2])
+	partes, _ := strconv.Atoi(os.Args[3])
 
-	fmt.Printf("La suma de 0a 10M es: %d", suma)
+	suma := lib.GetSumaDivisores(minimo, maximo)
 
-	suma2 := lib.GetSumaDivisores2Paralelo(0, 10000000)
+	fmt.Printf("La suma de %d a %d con 1 routine es:\t%d\n", minimo, maximo, suma)
 
-	fmt.Printf("La suma de 0a 10M es: %d", suma2)
+	suma3 := lib.GetSumaDivisoresParalelizando(minimo, maximo, partes)
+
+	fmt.Printf("La suma de %d a %d con %d routines es:\t%d\n", minimo, maximo, partes, suma3)
 }
