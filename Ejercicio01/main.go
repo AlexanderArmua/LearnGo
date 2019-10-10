@@ -17,6 +17,10 @@ func main() {
 
 	fmt.Printf("La suma de %d a %d con 1 routine es:\t%d\n", minimo, maximo, suma)
 
+	suma2 := lib.GetSumaDivisoresParalelizandoCPU(minimo, maximo)
+
+	fmt.Printf("La suma de %d a %d con routines es:\t%d\n", minimo, maximo, suma2)
+
 	suma3 := lib.GetSumaDivisoresParalelizando(minimo, maximo, partes)
 
 	fmt.Printf("La suma de %d a %d con %d routines es:\t%d\n", minimo, maximo, partes, suma3)
