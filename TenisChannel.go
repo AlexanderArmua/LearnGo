@@ -36,7 +36,7 @@ func main() {
 		ganadorTenisChannel <- nombreGanador
 	}()
 
-	fmt.Print(<-ganadorTenisChannel)
+	fmt.Print(<-ganadorTenisChannel, " se dió mas raquetazos.\n")
 }
 
 func jugarLosTantos(t1 *Tenista, t2 *Tenista, c chan *Tenista) {
@@ -47,8 +47,13 @@ func jugarLosTantos(t1 *Tenista, t2 *Tenista, c chan *Tenista) {
 	for i := 0; i < (2 * puntosParaTerminarPartido); i++ {
 		nroTenista := i % 2
 
+		time.Sleep(500 * time.Millisecond)
+
 		if !tenistas[nroTenista].Raquetazo() {
+			fmt.Println(i, "\tRaquetazo errado de ", tenistas[nroTenista].Nombre)
 			c <- tenistas[(i+1)%2]
+		} else {
+			fmt.Println(i, "\tRaquetazo exitoso de ", tenistas[nroTenista].Nombre)
 		}
 	}
 
@@ -60,6 +65,7 @@ func comenzarPartido(tenista1 *Tenista, tenista2 *Tenista) string {
 	var tenistaChanel = make(chan *Tenista)
 
 	retornar := ""
+
 	go jugarLosTantos(tenista1, tenista2, tenistaChanel)
 
 	for {
@@ -73,6 +79,7 @@ func comenzarPartido(tenista1 *Tenista, tenista2 *Tenista) string {
 				break
 			}
 		} else {
+			fmt.Println("Punto para ", tenistaQueSumaPuntos.Nombre)
 			tenistaQueSumaPuntos.Puntos++
 		}
 	}
